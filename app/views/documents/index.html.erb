@@ -1,0 +1,19 @@
+
+<% @documents.each do |doc|%>
+  <ul>
+    <li>
+      <%= link_to "download #{doc.name}", rails_blob_path(doc.file, disposition: "attachment") %>
+    
+      <% if doc.file.previewable? %>
+        <%= image_tag doc.file.preview(resize_to_limit: [100, 100]) %>
+      <% end %>
+
+      <%= link_to 'Destroy', document_path(doc), data: {method: :delete, confirm: 'Are you sure?'} %>
+
+    </li>
+  </ul>
+<% end %>
+
+
+
+  
