@@ -1,4 +1,7 @@
-<%= form_with model: @user do |f| %>
+
+<h1 class="mb-4">Вход в систему</h1>
+
+<%= form_with url: session_path do |f| %>
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
       <%= f.label :login %>
@@ -19,17 +22,5 @@
     </div>
   </div>
 
-  <div class="mb-3 row">
-    <div class="col-sm-2 col-form-label">
-      <%= f.label :password_confirmation %>
-    </div>
-
-    <div class="col-sm-10">
-      <%= f.password_field :password_confirmation, class: 'form-control form-control-lg' %>
-    </div>
-  </div>
-
-
-  <%= f.submit (@user.new_record? ? "Register!" : "Save"),
-    class: 'btn btn-primary btn-lg' %>
+  <%= f.submit "Войти!", class: 'btn btn-primary btn-lg' %>
 <% end %>
