@@ -1,4 +1,5 @@
 class DocumentsController < ApplicationController
+before_action :require_authentication
 
   def index
     @documents = Document.all
@@ -10,7 +11,6 @@ class DocumentsController < ApplicationController
   
   def create
     @document = Document.create!(document_params)
-    session[:document_id] = @document.id
     redirect_to root_path
   end
 

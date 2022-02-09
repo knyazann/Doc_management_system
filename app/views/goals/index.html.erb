@@ -1,0 +1,9 @@
+<h1>Иходящие (именно от тебя :"))</h1>
+<%= link_to 'Создать задание', new_goal_path, class: 'btn btn-primary btn-lg mb-3' %>
+<% @goals.each do |goal| %>
+  <article class="card my-3">
+    <div class="card-body">
+      <h2><%= goal.title %></h2>
+    </div>
+  </article>
+<% end %>

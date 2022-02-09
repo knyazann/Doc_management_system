@@ -1,0 +1,19 @@
+<%= form_with model: @goal do |f| %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :Название %>
+
+    <div class="col-sm-10">
+      <%= f.text_field :title, placeholder: 'Название', class: 'form-control form-control-lg' %>
+    </div>
+  
+
+    <div class="col-sm-10">
+      <%= f.file_field :file %>
+    </div>
+
+
+
+  <%= f.submit (@goal.new_record? ? "Загрузить в БД!" : "Save"),
+    class: 'btn btn-primary btn-lg' %>
+<% end %>
