@@ -19,8 +19,8 @@ before_action :require_authentication
   end
 
   def update
-    @Document = Document.find_by id: params[:id]
-    if @Document.update document_params
+    @document = Document.find_by id: params[:id]
+    if @document.update document_params
       redirect_to documents_path
     else
       render :edit
