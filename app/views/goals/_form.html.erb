@@ -1,44 +1,43 @@
-<%= form_with model: @goal do |f| %>
+<%= form_with model: @goal do |g| %>
   <div class="mb-3 row">
     <div class="col-sm-1 col-form-label">
-      <%= f.label :Название %>
+      <%= g.label :Название %>
     </div>
 
     <div class="col-sm-5">
-      <%= f.text_field :title, placeholder: 'Название', class: 'form-control form-control-lg' %>
+      <%= g.text_field :title, placeholder: 'Название', required: true, class: 'form-control form-control-lg' %>
       
     </div>
   </div>
 
   <div class="row">
     <div class="col-sm-3 col-form-label">
-      <%= f.label :Начать %>
+      <%= g.label :Начать %>
     </div>
 
     <div class="col-sm-3 col-form-label">
-      <%= f.label :Закончить %>
+      <%= g.label :Закончить %>
     </div>
   </div>
 
   <div class="mb-3 row">
     <div class="col-sm-3">
-      <%= f.datetime_field :start_date, class: 'form-control form-control-lg' %>
+      <%= g.datetime_field :start_date, class: 'form-control form-control-lg' %>
     </div>    
 
     <div class="col-sm-3">
-      <%= f.datetime_field :end_date, class: 'form-control form-control-lg' %>
+      <%= g.datetime_field :end_date, class: 'form-control form-control-lg' %>
     </div>  
   </div>
   
   <div class="form_row mb-3">
-    <%= f.radio_button :execution, "serial" %><label>последовательное</label>
-    <%= f.radio_button :execution, "parallel" %><label>параллельное</label>
+    <%= g.radio_button :execution, "serial" %><label>последовательное</label>
+    <%= g.radio_button :execution, "parallel" %><label>параллельное</label>
   </div>
-
-  <%= f.submit "Отправить задание", class: 'btn btn-primary btn-lg' %>
-
-  <%= f.submit "Отправить задание", class: 'btn btn-primary btn-lg' %>
+ 
+ 
+  
+  <%= g.submit "Добавить исполнителей", class: 'btn btn-primary btn-lg' %>
 
 
 <% end %>
-

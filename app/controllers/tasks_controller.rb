@@ -1,42 +1,36 @@
 class TasksController < ApplicationController
-before_action :require_authentication
-before_action :current_goal
-before_action :set_goal!, only: :destroy
+  before_action :require_authentication
+  before_action :set_goal!
+  before_action :set_task!, only: :destroy 
+      
+      def create
+        @task = @goal.tasks.build task_params
+        if @task.save
+          flash[:success] = "Сохранено"
+          redirect_to goal_path(@goal)
+        else
+          flash[:warning] = "Задание НЕ отправлено!"
+          render 'goals/show'
+        end
+      end
 
-    def new 
-      @task = @current_goal.tasks.new
-    end   
-    
-    def create
-      @task = @current_goal.tasks.build task_params
-      if @task.save
-        flash[:success] = "Сохранено"
-        redirect_to goals_path
-      else
-        flash[:warning] = "Задание НЕ отправлено!"
+      def destroy
+        @goal.destroy
+        flash[:success] = "Задание удалено!"
         redirect_to goals_path
       end
-    end
+     
+      private
+      
+      def task_params
+        params.require(:task).permit(:description, :user_id)
+      end
 
-    def destroy
-      @goal.destroy
-      flash[:success] = "Задание удалено!"
-      redirect_to goals_path
-    end
+      def set_goal!
+        @goal = Goal.find params[:goal_id]
+      end
 
-   
-
-    private
-    
-    def task_params
-      params.require(:task).permit(:number, :description, :end_date, :completation_date)
-    end
-
-    def current_goal
-      @current_goal = Goal.find_by id: params[:id]
-    end
-
-    def set_task!
-      @task = Goal.find_by id: params[:id].tasks.find params[:id]
-    end
+      def set_task!
+        @task = @goal.tasks.find params[:id]
+      end
 end
