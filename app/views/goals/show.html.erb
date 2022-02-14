@@ -1,19 +1,35 @@
 <h1 class="mb-4"><%= @goal.title %></h1>
 
-<time datetime="<%= @goal.created_at %>">
   <%= @goal.created_at %>
-</time>
+
+  <div class="mb-3 mt-3 row">
+   <div class="col-sm-2">
+      <h3>Исполнители</h3>
+    </div>
+  </div>
+
+<% @tasks.each do |task| %>
+  <div class="mb-3 row">
+    <div class="col-sm-3">
+      <%= @users.find(task.user_id).login %>
+    </div>
+
+    <div class="col-sm-5">
+      <%= task.description %>
+    </div>
+  </div>
+<% end %>
 
 <hr class="my-3">
 
- <%= form_with model: [@goal, @task] do |t| %>
+ <%= form_with model: [@goal, @task] do |f| %>
   <div class="mb-3 row">
    <div class="col-sm-2">
       <p>Выберите сотрудника</p>
     </div>
 
     <div class="col-sm-10">
-      <%= t.collection_select :user_id, User.order(:login), :id, :login %>
+      <%= f.collection_select :user_id, User.order(:login), :id, :login %>
     </div>
     </div>
 
@@ -23,9 +39,9 @@
     </div>
 
     <div class="col-sm-10">
-      <%= t.text_area :description, class: 'form-control' %>
+      <%= f.text_area :description, class: 'form-control' %>
     </div>
   </div>
 
-  <%= t.submit "Сохранить", class: 'btn btn-primary'%>
+  <%= f.submit "Сохранить", class: 'btn btn-primary'%>
 <% end %>

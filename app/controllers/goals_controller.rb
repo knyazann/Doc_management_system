@@ -8,6 +8,8 @@ before_action :set_goal!, only: %i[edit update show destroy]
 
     def show
       @task = @goal.tasks.build
+      @tasks = Task.where goal_id: @goal.id
+      @users = User.all
     end
 
     def new 
