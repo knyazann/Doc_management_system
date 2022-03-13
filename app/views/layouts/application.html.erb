@@ -18,18 +18,19 @@
 <nav class="slidemenu">
  
   <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle"/>
-  <label for="slide-item-1"><p class="icon">✎</p><span><%= link_to 'Задания', goals_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
+  <label for="slide-item-1"><p class="icon">✉</p><span><%= link_to 'Входящие задания', goals_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
 
   <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
-  <label for="slide-item-2"><p class="icon">🗎</p><span><%= link_to 'Документы', documents_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
-  
+  <label for="slide-item-2"><p class="icon">✎</p><span><%= link_to 'Исходящие задания', goals_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
+
   <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
-  <label for="slide-item-3"><p class="icon">🕮</p><span>Справочники</span></label>
- 
-  
+  <label for="slide-item-3"><p class="icon">🗎</p><span><%= link_to 'Документы', documents_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
   
   <input type="radio" name="slideItem" id="slide-item-4" class="slide-toggle"/>
-  <label for="slide-item-4"><p class="icon">👤</p><span>Профиль</span></label>
+  <label for="slide-item-4"><p class="icon">🕮</p><span>Справочники</span></label>  
+  
+  <input type="radio" name="slideItem" id="slide-item-5" class="slide-toggle"/>
+  <label for="slide-item-5"><p class="icon">👤</p><span>Профиль</span></label>
   
   <div class="clear"></div>
   
