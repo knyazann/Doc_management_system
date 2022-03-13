@@ -4,20 +4,20 @@
 <%= form_with url: session_path do |f| %>
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
-      <%= f.label :login %>
+      <%= f.label 'Логин' %>
     </div>
 
-    <div class="col-sm-10">
+    <div class="col-sm-4">
       <%= f.text_field :login, placeholder: 'Логин', class: 'form-control form-control-lg' %>
     </div>
   </div>
 
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
-      <%= f.label :password %>
+      <%= f.label 'Пароль' %>
     </div>
 
-    <div class="col-sm-10">
+    <div class="col-sm-4">
       <%= f.password_field :password, class: 'form-control form-control-lg' %>
     </div>
   </div>

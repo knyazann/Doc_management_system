@@ -49,7 +49,7 @@ before_action :set_goal!, only: %i[edit update show destroy]
     private
     
     def goal_params
-      params.require(:goal).permit(:title, :start_date, :end_date, :execution)
+      params.require(:goal).permit(:topic, :start_date, :end_date, :execution)
     end
 
     def set_goal!

@@ -12,15 +12,46 @@
   </head>
 
   <body>
-    <header class="p-3 bg-dark text-white">
+  <div class="mb-3 row">
+ <%= image_tag("logo.png", style: 'height:100px;width:auto; margin: 1% 0 1% 7%;') %>
+ 
+<nav class="slidemenu">
+ 
+  <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle"/>
+  <label for="slide-item-1"><p class="icon">✎</p><span><%= link_to 'Задания', goals_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
+
+  <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
+  <label for="slide-item-2"><p class="icon">🗎</p><span><%= link_to 'Документы', documents_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
+  
+  <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
+  <label for="slide-item-3"><p class="icon">🕮</p><span>Справочники</span></label>
+ 
+  
+  
+  <input type="radio" name="slideItem" id="slide-item-4" class="slide-toggle"/>
+  <label for="slide-item-4"><p class="icon">👤</p><span>Профиль</span></label>
+  
+  <div class="clear"></div>
+  
+  <div class="slider">
+    <div class="bar"></div>
+  </div>
+  
+</nav>
+
+</div>
+
+
+
+
+
+    <header class="header">
       <div class="container">
         <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
+            <li><%= link_to 'Home', root_path, class: 'nav-link' %></li>
             <li><%= link_to 'Регистрация', new_user_path, class: 'nav-link px-2 text-white' %></li>
             <li><%= link_to 'New_Doc', new_document_path, class: 'nav-link px-2 text-white' %></li>
-            <li><%= link_to 'Docs', documents_path, class: 'nav-link px-2 text-white' %></li>
-            <li><%= link_to 'Задания', goals_path, class: 'nav-link px-2 text-white' %></li>
           </ul>
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <% if user_signed_in? %>

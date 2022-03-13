@@ -3,7 +3,7 @@
 <% @goals.each do |goal| %>
   <article class="card my-2">
     <div class="card-body">
-      <h2><%= goal.title %></h2>
+      <h2><%= goal.topic %></h2>
       <%= link_to 'открыть', goal_path(goal), class: 'btn btn-primary' %> 
       <%= link_to 'Edit', edit_goal_path(goal), class: 'btn btn-secondary' %>
       <%= link_to 'удалить', goal_path(goal), data: {method: :delete, confirm: 'Вы уверены?'},  class: "btn btn-danger" %>
