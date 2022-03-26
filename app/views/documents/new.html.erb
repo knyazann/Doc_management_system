@@ -1,4 +1,24 @@
-<% provide :page_title, 'Docs' %>
+<form class="decor">
+<div class="form-left-decoration"></div>
+<div class="form-right-decoration"></div>
+<div class="circle"></div>
+<div class="form-inner">
+<h3>Новый договор</h3>
+<%= form_with model: @document do |f| %>
 
-<h1>Some documents</h1>
-<%= render 'form' %>
+  <%= f.label :number, "Регистрационный номер" %>
+  <%= f.text_field :number, placeholder: 'Регистрационный номер', class: 'form-control form-control-lg' %>
+  
+  <%= f.label :name, "Название документа" %>
+  <%= f.text_field :name, placeholder: 'Название документа', class: 'form-control form-control-lg' %>
+   
+  <%= f.label :name, "Контрагент" %>
+  <%= f.text_field :name, placeholder: 'Контрагент', class: 'form-control form-control-lg' %>
+ 
+  <%= f.label "Прикрепить файлы" %>
+  <%= f.file_field :file %>
+  
+  <%= f.submit  "Создать", class: 'btn btn-primary btn-lg' %>
+<% end %>
+</form>
+
