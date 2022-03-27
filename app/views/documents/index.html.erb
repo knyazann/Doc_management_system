@@ -1,16 +1,12 @@
 
+<%= link_to 'Создать новый документ', new_document_path, class: 'shine-button' %>
+
 <% @documents.each do |doc|%>
-  <ul>
-    <li>
-      <%= link_to "download #{doc.name}", rails_blob_path(doc.file, disposition: "attachment") %>
-      <% if doc.file.previewable? %>
-        <%= image_tag doc.file.preview(resize_to_limit: [100, 100]) %>
-      <% end %>
-      <%= link_to 'Destroy', document_path(doc), data: {method: :delete, confirm: 'Are you sure?'} %>
-    </li>
-    <iframe src= <%= pdfjs.full_path(file: rails_blob_path(doc.file, disposition: "attachment")) %> width="600" height="780" style="border: none;"> </iframe>
-  </ul>
-  
+ <%= link_to "Посмотреть #{doc.name}", document_path(doc)  %> 
+ <% if @document.file.previewable? %>
+        <%= image_tag @document.file.preview(resize_to_limit: [100, 100]) %>
+  <% end %> 
+ </br>
 <% end %>
  
 

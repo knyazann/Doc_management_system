@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+            <li class="dropdown">
+                <%= link_to current_user.login, '#', class: 'nav-link px-2 dropdown-toggle', data: {"bs-toggle": 'dropdown'} %>
+              
+              <ul class="dropdown-menu">
+
+                <li><hr class="dropdown-divider"></li>
+
+                <li>
+                  <%= link_to 'Выход', session_path, class: 'dropdown-item', data: {method: :delete} %>
+                </li>
+              </ul>
+             </li>
+          <% else %>
+            <li><%= link_to 'Регистрация', new_user_path,
+              class: 'nav-link px-2' %></li>
+
+            <li><%= link_to 'Вход', new_session_path,
+              class: 'nav-link px-2' %></li>
+            <% end %>

@@ -30,7 +30,7 @@
   <label for="slide-item-4"><p class="icon">🕮</p><span>Справочники</span></label>  
   
   <input type="radio" name="slideItem" id="slide-item-5" class="slide-toggle"/>
-  <label for="slide-item-5"><p class="icon">👤</p><span>Профиль</span></label>
+  <label for="slide-item-5"><p class="icon">👤</p><span><%= link_to 'Профиль', users_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
   
   <div class="clear"></div>
   
@@ -40,46 +40,7 @@
   
 </nav>
 
-</div>
-
-
-
-
-
-    <header class="header">
-      <div class="container">
-        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><%= link_to 'Home', root_path, class: 'nav-link' %></li>
-            <li><%= link_to 'Регистрация', new_user_path, class: 'nav-link px-2 text-white' %></li>
-            <li><%= link_to 'New_Doc', new_document_path, class: 'nav-link px-2 text-white' %></li>
-          </ul>
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <% if user_signed_in? %>
-            <li class="dropdown">
-                <%= link_to current_user.login, '#', class: 'nav-link px-2 dropdown-toggle', data: {"bs-toggle": 'dropdown'} %>
-              
-              <ul class="dropdown-menu">
-
-                <li><hr class="dropdown-divider"></li>
-
-                <li>
-                  <%= link_to 'Выход', session_path, class: 'dropdown-item', data: {method: :delete} %>
-                </li>
-              </ul>
-             </li>
-          <% else %>
-            <li><%= link_to 'Регистрация', new_user_path,
-              class: 'nav-link px-2' %></li>
-
-            <li><%= link_to 'Вход', new_session_path,
-              class: 'nav-link px-2' %></li>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    
+</div>    
 
     <main class="container mt-3">
       <% flash.each do |k, v| %>

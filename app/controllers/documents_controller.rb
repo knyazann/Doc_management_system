@@ -6,7 +6,11 @@ before_action :require_authentication
   
   def new 
     @document = Document.new
-  end   
+  end
+
+  def show
+    @document = Document.find_by id: params[:id]
+  end
   
   def create
     @document = Document.create!(document_params)
@@ -35,6 +39,6 @@ before_action :require_authentication
 
   private
     def document_params
-      params.require(:document).permit(:name, :file)
+      params.require(:document).permit(:number, :name,  :file)
     end
 end

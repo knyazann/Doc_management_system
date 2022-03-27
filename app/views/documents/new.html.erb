@@ -1,24 +1,31 @@
-<form class="decor">
-<div class="form-left-decoration"></div>
-<div class="form-right-decoration"></div>
-<div class="circle"></div>
-<div class="form-inner">
-<h3>Новый договор</h3>
-<%= form_with model: @document do |f| %>
+ <div class="row">
+    <div class="col-auto">
+      <%= link_to '« назад', documents_path, class: 'previous', style: 'margin-top:auto' %>
+    </div>
+<div class="col-lg-10">
 
-  <%= f.label :number, "Регистрационный номер" %>
-  <%= f.text_field :number, placeholder: 'Регистрационный номер', class: 'form-control form-control-lg' %>
+<form class="decor">
+  <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+        <div class="form-inner">
+        <h3>Новый договор</h3>
+        <%= form_with model: @document do |f| %>
+
+        <%= f.label :number, "Регистрационный номер" %>
+        <%= f.text_field :number, placeholder: 'Регистрационный номер', class: 'form-control form-control-lg' %>
   
-  <%= f.label :name, "Название документа" %>
-  <%= f.text_field :name, placeholder: 'Название документа', class: 'form-control form-control-lg' %>
+        <%= f.label :name, "Название документа" %>
+        <%= f.text_field :name, placeholder: 'Название документа', class: 'form-control form-control-lg' %>
    
-  <%= f.label :name, "Контрагент" %>
-  <%= f.text_field :name, placeholder: 'Контрагент', class: 'form-control form-control-lg' %>
+        <%= f.label :name, "Контрагент" %>
+        <%= f.text_field :name, placeholder: 'Контрагент', class: 'form-control form-control-lg' %>
  
-  <%= f.label "Прикрепить файлы" %>
-  <%= f.file_field :file %>
+        <%= f.label "Прикрепить файлы" %>
+        <%= f.file_field :file %>
   
-  <%= f.submit  "Создать", class: 'btn btn-primary btn-lg' %>
-<% end %>
+        <%= f.submit  "Создать", class: 'btn btn-primary btn-lg' %>
+        <% end %>
 </form>
+</div>
 
