@@ -1,7 +1,8 @@
 class DocumentsController < ApplicationController
 before_action :require_authentication
+before_action :set_document!, only: %i[edit update show destroy]
   def index
-    @documents = Document.all
+    @documents = @current_user.documents.all
   end
   
   def new 
@@ -9,21 +10,25 @@ before_action :require_authentication
   end
 
   def show
-    @document = Document.find_by id: params[:id]
+    @route = @document.routes.build
   end
   
   def create
-    @document = Document.create!(document_params)
-    redirect_to root_path
+    @document = @current_user.documents.build document_params
+      if @document.save
+        redirect_to document_path(@document)
+      else
+        flash[:warning] = "Ошибка!"
+        redirect_to documents_path
+      end
   end
 
   def edit
-    @document = Document.find_by id: params[:id]
   end
 
   def update
-    @document = Document.find_by id: params[:id]
     if @document.update document_params
+      flash[:success] = "Изменено!"
       redirect_to documents_path
     else
       render :edit
@@ -31,7 +36,6 @@ before_action :require_authentication
   end
 
   def destroy
-    @document = Document.find_by id: params[:id]
     #@document.file.purge
     @document.destroy
     redirect_to documents_path
@@ -39,6 +43,10 @@ before_action :require_authentication
 
   private
     def document_params
-      params.require(:document).permit(:number, :name,  :file)
+      params.require(:document).permit(:number, :name, :file)
+    end
+
+    def set_document!
+      @document = @current_user.documents.find params[:id]
     end
 end

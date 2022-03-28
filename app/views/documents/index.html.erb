@@ -3,8 +3,8 @@
 
 <% @documents.each do |doc|%>
  <%= link_to "Посмотреть #{doc.name}", document_path(doc)  %> 
- <% if @document.file.previewable? %>
-        <%= image_tag @document.file.preview(resize_to_limit: [100, 100]) %>
+ <% if doc.file.previewable? %>
+        <%= image_tag doc.file.preview(resize_to_limit: [100, 100]) %>
   <% end %> 
  </br>
 <% end %>
