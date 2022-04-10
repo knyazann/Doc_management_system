@@ -8,7 +8,7 @@
     <div class="col-sm-4">
       <%= link_to "download #{@document.name}", rails_blob_path(@document.file, disposition: "attachment") %>
       <%= link_to 'Destroy', document_path(@document), data: {method: :delete, confirm: 'Are you sure?'} %>
-
+      
       <hr class="my-3">
 
  <%= form_with model: [@document, @route] do |f| %>
@@ -19,7 +19,6 @@
 
     <div class="col-sm-10">
       <%= f.text_field :name, class: 'form-control' %>
-      <%= f.text_field :name, class: 'form-control' %>
     </div>
   </div>
 
@@ -27,8 +26,17 @@
 <% end %>
 
       </div>
+
+      <% @routes.each do |route| %>
+
+      <%= link_to "маршрут #{route.name}", document_route_path(@document, route) %> 
+    
+<% end %>   
+    
      <div class="col-sm-8">
      <iframe src= <%= pdfjs.full_path(file: rails_blob_path(@document.file, disposition: "attachment")) %> width="700" height="600" style="border: none; float:right"> </iframe>
 </div>
+
+
 </div>
 

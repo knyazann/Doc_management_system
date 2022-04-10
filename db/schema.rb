@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_28_135028) do
+ActiveRecord::Schema.define(version: 2022_04_06_113349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 2022_03_28_135028) do
     t.index ["user_id"], name: "index_routes_on_user_id"
   end
 
+  create_table "steps", force: :cascade do |t|
+    t.string "type"
+    t.string "status"
+    t.bigint "route_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["route_id"], name: "index_steps_on_route_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.integer "number"
     t.string "description"
@@ -103,6 +112,7 @@ ActiveRecord::Schema.define(version: 2022_03_28_135028) do
   add_foreign_key "goals", "users"
   add_foreign_key "routes", "documents"
   add_foreign_key "routes", "users"
+  add_foreign_key "steps", "routes"
   add_foreign_key "tasks", "goals"
   add_foreign_key "tasks", "users"
 end

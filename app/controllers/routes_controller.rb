@@ -1,7 +1,7 @@
 class RoutesController < ApplicationController
   before_action :require_authentication
   before_action :set_document!
-  before_action :set_route!, only: :destroy 
+  before_action :set_route!, only: %i[show destroy]
       
       def create
         @route = @document.routes.build route_params
@@ -15,11 +15,10 @@ class RoutesController < ApplicationController
         end
       end
 
-      def destroy
-        @document.destroy
-        flash[:success] = "Удалено!"
-        redirect_to documents_path
+      def show
+        @step = @route.steps.build
       end
+
      
       private
       

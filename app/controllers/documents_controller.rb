@@ -11,6 +11,7 @@ before_action :set_document!, only: %i[edit update show destroy]
 
   def show
     @route = @document.routes.build
+    @routes = Route.where document_id: @document.id
   end
   
   def create

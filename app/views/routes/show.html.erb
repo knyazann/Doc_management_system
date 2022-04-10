@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-auto">
+      <%= link_to '« назад', document_path(@document), class: 'previous', style: 'margin-top:auto' %>
+    </div>
+</div>
+
+<h1 class="mb-4"><%= @document.name %></h1>
+
+<div class="row">
+    <div class="col-sm-4">
+
+ <%= form_with model: @step do |f| %>
+      <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <p>Маршрут документа</p>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :type, class: 'form-control' %>
+    </div>
+  </div>
+
+  <%= f.submit "Сохранить", class: 'btn btn-primary'%>
+<% end %>
+
+      </div>
+</div>
+

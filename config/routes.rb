@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     resources :tasks, only: %i[create destroy]
   end
   resources :documents do
-    resources :routes, only: %i[create destroy]
+    resources :routes, only: %i[create show destroy]
   end
+  resources :steps, only: %i[create]
   mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
 
   #get "/:goal_id/tasks/new", to: 'tasks#new', as: 'goal_new_task'  
