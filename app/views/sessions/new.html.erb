@@ -1,26 +1,22 @@
-
 <h1 class="mb-4">Вход в систему</h1>
-
-<%= form_with url: session_path do |f| %>
+<%= form_with url: session_path do |f|  %>
+<div class="signin">
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
       <%= f.label 'Логин' %>
     </div>
-
     <div class="col-sm-4">
       <%= f.text_field :login, placeholder: 'Логин', class: 'form-control form-control-lg' %>
     </div>
   </div>
-
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
       <%= f.label 'Пароль' %>
     </div>
-
     <div class="col-sm-4">
       <%= f.password_field :password, class: 'form-control form-control-lg' %>
     </div>
   </div>
-
-  <%= f.submit "Войти!", class: 'btn btn-primary btn-lg' %>
+  <%= f.submit "Войти!" %>
+  </div>
 <% end %>

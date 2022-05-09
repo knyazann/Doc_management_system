@@ -7,6 +7,7 @@ class TasksController < ApplicationController
         @task = @goal.tasks.build task_params
         if @task.save
           flash[:success] = "Сохранено"
+          UserMailer.with(task: @task).new_task_email.deliver_later
           redirect_to goal_path(@goal)
         else
           flash[:warning] = "Задание НЕ отправлено!"

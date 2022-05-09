@@ -52,7 +52,10 @@
     <%= label :execution, "Параллельное исполнение", class: "btn btn-secondary", for:"parallel" %>
     
   </div> 
-  
-  <%= g.submit "Добавить исполнителей", class: 'btn btn-primary btn-lg' %>
+  <div class="mb-3 row">
+        <%= g.label "Прикрепить файл" %>
+        <%= g.file_field :file %>
+  </div>
+  <%= g.submit "Добавить исполнителей", class: 'button' %>
 
 <% end %>
