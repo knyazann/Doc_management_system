@@ -44,7 +44,7 @@ before_action :set_document!, only: %i[edit update show destroy]
 
   private
     def document_params
-      params.require(:document).permit(:number, :name, :file)
+      params.require(:document).permit(:number, :name, :file, :doc_type)
     end
 
     def set_document!

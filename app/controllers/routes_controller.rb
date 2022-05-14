@@ -2,7 +2,7 @@ class RoutesController < ApplicationController
   before_action :require_authentication
   before_action :set_document!
   before_action :set_route!, only: %i[show destroy]
-      
+
       def create
         @route = @document.routes.build route_params
         @route.user_id = @current_user.id
@@ -17,13 +17,21 @@ class RoutesController < ApplicationController
 
       def show
         @step = @route.steps.build
+        @steps = Step.where route_id: @route.id
+        @users = User.all
+      end
+
+      def destroy
+        @route.destroy
+        flash[:success] = "Маршрут удалён!"
+        redirect_to document_path(@document)
       end
 
      
       private
       
       def route_params
-        params.require(:route).permit(:name, :status, :user_id)
+        params.require(:route).permit(:route_name, :status, :user_id)
       end
 
       def set_document!

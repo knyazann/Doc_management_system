@@ -18,20 +18,23 @@
     </div>
 
     <div class="col-sm-10">
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :route_name, class: 'form-control' %>
     </div>
   </div>
 
   <%= f.submit "Сохранить", class: 'btn btn-primary'%>
 <% end %>
 
+<% @routes.each do |route| %>
+
+      <%= link_to "маршрут #{route.route_name}", document_route_path(@document, route) %> 
+      <%= link_to 'Destroy', document_route_path(@document, route), data: {method: :delete, confirm: 'Are you sure?'} %>
+    
+<% end %> 
+
       </div>
 
-      <% @routes.each do |route| %>
-
-      <%= link_to "маршрут #{route.name}", document_route_path(@document, route) %> 
-    
-<% end %>   
+        
     
      <div class="col-sm-8">
      <iframe src= <%= pdfjs.full_path(file: rails_blob_path(@document.file, disposition: "attachment")) %> width="700" height="600" style="border: none; float:right"> </iframe>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_06_113349) do
+ActiveRecord::Schema.define(version: 2022_05_14_102457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_113349) do
     t.integer "number"
     t.bigint "user_id"
     t.string "status"
+    t.string "doc_type"
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
@@ -65,8 +66,17 @@ ActiveRecord::Schema.define(version: 2022_04_06_113349) do
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
+  create_table "participants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "step_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["step_id"], name: "index_participants_on_step_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
   create_table "routes", force: :cascade do |t|
-    t.string "name"
+    t.string "route_name"
     t.string "status"
     t.bigint "user_id", null: false
     t.bigint "document_id", null: false
@@ -77,12 +87,19 @@ ActiveRecord::Schema.define(version: 2022_04_06_113349) do
   end
 
   create_table "steps", force: :cascade do |t|
-    t.string "type"
+    t.string "step_type"
     t.string "status"
     t.bigint "route_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "condition1"
+    t.string "condition2"
+    t.bigint "user_id"
+    t.integer "number"
+    t.integer "next_step1"
+    t.integer "next_step2"
     t.index ["route_id"], name: "index_steps_on_route_id"
+    t.index ["user_id"], name: "index_steps_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -110,9 +127,12 @@ ActiveRecord::Schema.define(version: 2022_04_06_113349) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "documents", "users"
   add_foreign_key "goals", "users"
+  add_foreign_key "participants", "steps"
+  add_foreign_key "participants", "users"
   add_foreign_key "routes", "documents"
   add_foreign_key "routes", "users"
   add_foreign_key "steps", "routes"
+  add_foreign_key "steps", "users"
   add_foreign_key "tasks", "goals"
   add_foreign_key "tasks", "users"
 end

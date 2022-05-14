@@ -8,6 +8,25 @@ body {
  p { color: #303C6C}
  label { color: #303C6C}
 
+ table {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+text-align: center;
+border-collapse: separate;
+border-spacing: 5px;
+background: #ECE9E0;
+color: #656665;
+border: 10px solid #ECE9E0;
+border-radius: 20px;
+}
+th {
+  font-size: 18px;
+padding: 5px;
+}
+/* границы ячеек тела таблицы */
+td {
+  background: #F5D7BF;
+padding: 8px;
+}
 
 .signin input[type="submit"] {
     text-decoration: none;
@@ -101,7 +120,7 @@ body {
 .form-inner input, .form-inner textarea {
   display: block;
   width: 70%;
-  padding: 0 20px;
+  padding: 0 2px;
   margin: 0 auto 5px auto;
   background: #E9EFF6;
   line-height: 30px;
@@ -132,6 +151,7 @@ body {
   font-size: 28px;
   color: #E85A4F;
 }
+
 
 
 .shine-button {
@@ -190,3 +210,4 @@ body {
   border-radius: 20px;
   font-family: 'Roboto', sans-serif;
 }
+

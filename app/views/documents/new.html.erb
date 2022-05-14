@@ -19,8 +19,8 @@
         <%= f.label :name, "Название документа" %>
         <%= f.text_field :name, placeholder: 'Название документа', class: 'form-control form-control-lg', style: 'focus:on' %>
 
-        <%= f.label :type, "Тип документа" %>
-        <%= f.select :type, ['Договор', 'Записка', 'Заявление'], placeholder: 'Выберите тип документа'%>
+        <%= f.label :doc_type, "Тип документа" %>
+        <%= f.select :doc_type, ['Договор', 'Записка', 'Заявление'], placeholder: 'Выберите тип документа'%>
 
         <%= f.label :name, "Контрагент" %>
         <%= f.text_field :name, placeholder: 'Контрагент', class: 'form-control form-control-lg' %>

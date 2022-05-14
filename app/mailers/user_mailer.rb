@@ -5,5 +5,4 @@ class UserMailer < ApplicationMailer
       @task = params[:task]
       mail(to: @task.user.login, subject: 'Новое задание | OctoDocs')
     end
-  
 end
