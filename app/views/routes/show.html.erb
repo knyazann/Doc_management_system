@@ -1,25 +1,26 @@
 <div class="row">
     <div class="col-auto">
-      <%= link_to '« назад', document_path(@document), class: 'previous', style: 'margin-top:auto' %>
+      <%= link_to '« назад', document_path(@route.document), class: 'previous', style: 'margin-top:auto' %>
     </div>
 </div>
 
-<h1>Новый маршрут</h1>
+<h1>Настройка маршрута "<%= @route.route_name%>"</h1>
 <div class="row">
 <div class="col-auto">
-<table>
+<table class="step-table">
   <tr> <!--ряд с ячейками заголовков-->
     <th>этап №</th>
     <th>тип этапа</th>
     <th>участники</th>
     <th>следующий этап</th>
   </tr> 
+ 
   <% @steps.each do |step| %>
   <tr> <!--ряд с ячейками тела таблицы-->
     <td><%= step.number%></td>
     <td><%= step.step_type%></td>
     <td><%= @users.find(step.user_id).login %></td>
-    <td>  <table>
+    <td>  <table class="step-table">
           <tr> <!--варисант1 след этап-->
             <td><%= step.next_step1%></td>
             <th>если</th>
@@ -60,34 +61,33 @@
           <option label="<%= user.login %>" value ="<%= user.id %>"></option>
         <% end %>
       </datalist> 
+    
 <hr class="my-3">
-<div style="float: left">
-      <%= f.label :condition1, "Если"%> 
+<p style="color: #E85A4F; font-size: 20px;">Следующий этап</p>
+ <div style="float: left">
+      <%= f.label :next_step1, "этап №"%> 
     </div>
-  <div style="float: left">
+  <div id="next" style="float: left">
+     <%= f.text_field :next_step1, class: 'form-control'%>
+    </div>
+<div style="float: left">
+      <%= f.label :condition1, "если"%> 
+    </div>
+  <div id="condition" style="float: left">
      <%= f.text_field :condition1, class: 'form-control'%>
     </div>
 
-    <div style="float: left">
-      <%= f.label :next_step1, "то этап №"%> 
+   <div style="float: left">
+      <%= f.label :next_step2, "этап №"%> 
     </div>
-  <div style="float: left">
-     <%= f.text_field :next_step1, class: 'form-control'%>
-    </div>
-    
-
-<div style="float: left">
-      <%= f.label :condition2, "Если"%> 
-    </div>
-  <div style="float: left">
-     <%= f.text_field :condition2, class: 'form-control'%>
-    </div>
-
-    <div style="float: left">
-      <%= f.label :next_step2, "то этап №"%> 
-    </div>
-  <div style="float: left">
+  <div id="next" style="float: left">
      <%= f.text_field :next_step2, class: 'form-control'%>
+    </div>
+<div style="float: left">
+      <%= f.label :condition2, "если"%> 
+    </div>
+  <div id="condition" style="float: left">
+     <%= f.text_field :condition2, class: 'form-control'%>
     </div>
 
 

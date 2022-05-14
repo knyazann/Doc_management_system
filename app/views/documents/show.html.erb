@@ -27,8 +27,8 @@
 
 <% @routes.each do |route| %>
 
-      <%= link_to "маршрут #{route.route_name}", document_route_path(@document, route) %> 
-      <%= link_to 'Destroy', document_route_path(@document, route), data: {method: :delete, confirm: 'Are you sure?'} %>
+      <%= link_to "маршрут #{route.route_name}", route_path(route) %> 
+      <%= link_to 'Destroy', route_path(route), data: {method: :delete, confirm: 'Are you sure?'} %>
     
 <% end %> 
 

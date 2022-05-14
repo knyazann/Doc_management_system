@@ -1,5 +1,6 @@
 @import 'bootstrap';
 @import 'menu';
+@import 'goaltable';
 
 body {
   background-color: #EAE7DC;
@@ -8,7 +9,7 @@ body {
  p { color: #303C6C}
  label { color: #303C6C}
 
- table {
+.step-table {
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 text-align: center;
 border-collapse: separate;
@@ -18,12 +19,12 @@ color: #656665;
 border: 10px solid #ECE9E0;
 border-radius: 20px;
 }
-th {
+.step-table th {
   font-size: 18px;
 padding: 5px;
 }
 /* границы ячеек тела таблицы */
-td {
+.step-table td {
   background: #F5D7BF;
 padding: 8px;
 }
@@ -127,6 +128,18 @@ padding: 8px;
   border-width: 0;
   border-radius: 20px;
   font-family: 'Roboto', sans-serif;
+}
+
+ #next {
+  
+  width:10%;
+ 
+}
+
+#condition {
+  
+  width:62%;
+ 
 }
 .form-inner input[type="submit"], .button{
   width: 30%;

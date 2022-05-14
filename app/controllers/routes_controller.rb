@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
   before_action :require_authentication
-  before_action :set_document!
+  before_action :set_document!, only: %i[new create]
   before_action :set_route!, only: %i[show destroy]
 
       def create
@@ -39,6 +39,6 @@ class RoutesController < ApplicationController
       end
 
       def set_route!
-        @route = @document.routes.find params[:id]
+        @route = Route.find(params[:id])
       end
 end

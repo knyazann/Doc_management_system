@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-auto">
+      <%= link_to '« входящие задания', goals_path, class: 'previous', style: 'margin-top:auto' %>
+    </div>
+</div>
+
+<div class="row">
+<div class="col-auto">
+<h2>Этап:  <%=@step.step_type%> </h2>
+<h4>Документ:  <%=link_to "атрибуты", root_path%> </h4>
+<%= form_with model: @participant do |f| %>
+    <%= f.radio_button :decision, true, class: "btn-check", id: "condition1"%>
+    <%= label :decision, "#{@step.condition1}", class: "btn btn-secondary", for:"condition1", value: "#{@step.condition1}"  %>
+
+    <%= f.radio_button :desicion, false, checked: true, class: "btn-check", id: "parallel"%>
+    <%= label :decision, "#{@step.condition2}", class: "btn btn-secondary", for:"parallel" %>
+</br>
+</br>
+     <%= f.submit "Отправить решение", class: 'btn btn-primary'%>
+  <%end%>
+  </div> 
+
+<div class="col-sm-8" style="float: right">
+     <iframe src= <%= pdfjs.full_path(file: rails_blob_path(@document.file, disposition: "attachment")) %> width="700" height="600" style="border: none; float:right"> </iframe>
+</div>
+
+
+</div>

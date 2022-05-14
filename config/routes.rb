@@ -4,13 +4,16 @@ Rails.application.routes.draw do
   resources :goals do
     resources :tasks, only: %i[create destroy]
   end
+  get "/routes/:id", to: 'routes#show', as: 'route'  
+
   resources :documents do
-    resources :routes, only: %i[new create show destroy]
+    resources :routes, only: %i[new create destroy show]
   end
 
-  resources :routes, only: %i[new create show destroy] do
-    resources :steps, only: %i[create]
+  resources :routes, only: %i[new create destroy show] do
+    resources :steps, only: %i[create show]
   end 
+  
   
    
   mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'

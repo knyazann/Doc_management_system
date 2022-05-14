@@ -1,12 +1,44 @@
-<h1>Иходящие (именно от тебя :"))</h1>
-<%= link_to 'Создать задание', new_goal_path, class: 'btn btn-primary btn-lg mb-3' %>
-<% @goals.each do |goal| %>
-  <article class="card my-2">
-    <div class="card-body">
-      <h2><%= goal.topic %></h2>
-      <%= link_to 'открыть', goal_path(goal), class: 'btn btn-primary' %> 
-      <%= link_to 'Edit', edit_goal_path(goal), class: 'btn btn-secondary' %>
-      <%= link_to 'удалить', goal_path(goal), data: {method: :delete, confirm: 'Вы уверены?'},  class: "btn btn-danger" %>
-    </div>
-  </article>
-<% end %>
+<%#= link_to 'Создать задание', new_goal_path, class: 'btn btn-primary btn-lg mb-3' %>
+<div class="col" style="width:50%; float:left;">
+<table class="goal-table">
+<caption>
+    Входящие задания
+  </caption>
+  <tr> <!--ряд с ячейками заголовков-->
+    <th>тема</th>
+    <th>от кого</th>
+    <th>срок исполнения</th>
+    <th>статус</th>
+    <th></th>
+  </tr> 
+  <% @goals.each do |goal| %>
+    <tr> <!--ряд с ячейками тела таблицы-->
+     <td><%= goal.topic%></td>
+     <td><%= goal.user.login%></td>
+     <td>18.05.2022 14:00</td>
+     <td>Не начато</td>
+     <td><%= link_to 'открыть', goal_path(goal), style: 'color:#5C2018;' %></td>
+    </tr> 
+  <% end %>
+ </table>
+</div>
+<div class="col" style="float:left; padding-left:60px;">
+<table class="route-table">
+<caption>
+    Участие в маршрутах
+  </caption>
+  <tr> <!--ряд с ячейками заголовков-->
+    <th>маршрут</th>
+    <th>этап</th>
+    <th></th>
+  </tr> 
+  <% @steps.each do |step| %>
+    <tr> <!--ряд с ячейками тела таблицы-->
+     <td><%= step.route.route_name%></td>
+     <td><%= step.step_type%></td>
+     <% route = step.route_id%>
+     <td><%= link_to 'открыть', route_step_path(route, step), style: 'color:#5C2018;' %></td>
+    </tr> 
+  <% end %>
+ </table>
+</div>

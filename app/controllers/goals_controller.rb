@@ -4,6 +4,7 @@ before_action :set_goal!, only: %i[edit update show destroy]
 
     def index
       @goals = @current_user.goals.all
+      @steps = Step.where(user_id: @current_user, status:"в процессе")
     end
 
     def show
