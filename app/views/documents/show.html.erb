@@ -5,34 +5,37 @@
 </div>
 <h1 class="mb-4"><%= @document.name %></h1>
 <div class="row">
-    <div class="col-sm-4">
-      <%= link_to "download #{@document.name}", rails_blob_path(@document.file, disposition: "attachment") %>
-      <%= link_to 'Destroy', document_path(@document), data: {method: :delete, confirm: 'Are you sure?'} %>
-      
-      <hr class="my-3">
-
- <%= form_with model: [@document, @route] do |f| %>
-      <div class="mb-3 row">
-    <div class="col-sm-2 col-form-label">
-      <p>Маршрут документа</p>
-    </div>
-
-    <div class="col-sm-10">
-      <%= f.text_field :route_name, class: 'form-control' %>
-    </div>
-  </div>
-
-  <%= f.submit "Сохранить", class: 'btn btn-primary'%>
-<% end %>
-
-<% @routes.each do |route| %>
-
-      <%= link_to "маршрут #{route.route_name}", route_path(route) %> 
-      <%= link_to 'Destroy', route_path(route), data: {method: :delete, confirm: 'Are you sure?'} %>
     
-<% end %> 
+      <%#= link_to "download #{@document.name}", rails_blob_path(@document.file, disposition: "attachment") %>
+      <%#= link_to 'Destroy', document_path(@document), data: {method: :delete, confirm: 'Are you sure?'} %>
+      
 
-      </div>
+
+ <%#= form_with model: [@document, @route] do |f| %>
+
+    <div class="col-sm-4">
+    <table>
+    <caption style="caption-side: top;">Атрибуты документа<caption> 
+    <tr>
+    <td style="font-weight: 500;">Регистрационный номер:</td>
+    <td >№ 1/01</td>
+    </tr>
+    <tr>
+    <td style="font-weight: 500;">Тип документа:</td>
+    <td >Договор</td>
+    </tr>
+    <tr>
+    <td style="font-weight: 500;">Контрагент:</td>
+    <td >ОАО "Акрихин"</td>
+    </tr>
+    </table>
+    </br>
+      <hr class="my-3">
+      <p>Документ находится в маршруте:</p> 
+      <%= link_to "Подписание договора", root_path, style: 'color:#5C2018;'  %>
+    </div>
+
+    
 
         
     

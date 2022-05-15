@@ -1,7 +1,5 @@
 <h1 class="mb-4"><%= @goal.topic %></h1>
 
-<%= @goal.created_at %>
-
   <div class="mb-3 mt-3 row">
    <div class="col-sm-2">
       <h3>Исполнители</h3>
@@ -25,14 +23,14 @@
  <%= form_with model: [@goal, @task] do |f| %>
   <div class="mb-3 row">
     <div class="col-sm-2">
-      <%= f.label :user_id, "Выберите сотрудника "%> :    
+      <%= f.label :user_id, "Выберите сотрудника: "%> 
     </div>
 
-    <div class="col">
+    <div class="col-sm-5">
       <%= f.text_field :user_id, list: 'user', class: 'form-control form-control-lg', onclick: "upperCase();"  %>
       <datalist id="user">
         <% User.all.each do |user| %>
-          <option label="<%= user.login %>" value ="<%= user.id %>"></option>
+          <option label="<%= user.login %>" value ="<%= user.login %>"></option>
         <% end %>
       </datalist>    
     </div>
@@ -43,7 +41,7 @@
       <p>Дополнительное описание задания сотрудника</p>
     </div>
 
-    <div class="col-sm-10">
+    <div class="col-sm-5">
       <%= f.text_area :description, class: 'form-control' %>
     </div>
   </div>
