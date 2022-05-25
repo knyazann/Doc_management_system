@@ -1,4 +1,52 @@
 <% provide :page_title, 'Registartion' %>
 
 <h1>Регистрация</h1>
-<%= render 'form' %>
+<%= form_with model: @user do |f| %>
+<div class="signin">
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label 'Логин' %>
+    </div>
+
+    <div class="col-sm-4">
+      <%= f.text_field :login, placeholder: 'Логин', class: 'form-control form-control-lg' %>
+    </div>
+  </div>
+
+ <div class="mb-3 row">
+    <div class="col-sm-3 col-form-label">
+      <%= f.label :role, "Обычный пользователь", :value => "true"  %>
+    <%= f.radio_button :role, 1 %>
+        </div>
+        <div class="col-sm-2 col-form-label">
+    <%= f.label :role, "Администратор", :value => "false" %>
+    <%= f.radio_button :role, 2 %>
+    </div>
+</div>
+
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label 'Пароль' %>
+    </div>
+
+    <div class="col-sm-4">
+      <%= f.password_field :password, class: 'form-control form-control-lg' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label 'Подтверждение пароля' %>
+    </div>
+
+    <div class="col-sm-4">
+      <%= f.password_field :password_confirmation, class: 'form-control form-control-lg' %>
+    </div>
+  </div>
+
+
+  <%= f.submit (@user.new_record? ? "Зарегистрировать" : "Save"),
+    class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>

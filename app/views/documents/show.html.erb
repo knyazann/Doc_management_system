@@ -5,14 +5,28 @@
 </div>
 <h1 class="mb-4"><%= @document.name %></h1>
 <div class="row">
-    
+    <% @routes.each do |route| %>
+    <%= link_to "маршрут #{route.route_name}", document_route_path(@document, route) %> 
+    <% end %> 
       <%#= link_to "download #{@document.name}", rails_blob_path(@document.file, disposition: "attachment") %>
       <%#= link_to 'Destroy', document_path(@document), data: {method: :delete, confirm: 'Are you sure?'} %>
       
 
 
- <%#= form_with model: [@document, @route] do |f| %>
+ <%= form_with model: [@document, @route] do |f| %>
+<div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <p>Маршрут документа</p>
+    </div>
 
+    <div class="col-sm-10">
+      <%= f.text_field :route_name, class: 'form-control' %>
+    </div>
+  </div>
+  
+  <%= f.submit "Сохранить", class: 'btn btn-primary'%>
+<% end %>
+</div>
     <div class="col-sm-4">
     <table>
     <caption style="caption-side: top;">Атрибуты документа<caption> 

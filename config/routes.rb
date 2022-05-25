@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   resource :session, only: %i[new create destroy] # в единственном числе, чтобы при DELETE не запрашивался id
   resources :users, only: %i[index new create]
-  resources :goals do
+  resources :goals, only: %i[new create destroy show] do
     resources :tasks, only: %i[create destroy]
   end
-  get "/routes/:id", to: 'routes#show', as: 'route'  
+  resources :handbooks, only: %i[index]
+  #get "/routes/:id", to: 'routes#show', as: 'route'  
+  get "/goals_inbox", to: 'goals#index_inbox', as: 'inbox_goals' 
+  get "/goals_outbox", to: 'goals#index_outbox', as: 'outbox_goals' 
 
   resources :documents do
     resources :routes, only: %i[new create destroy show]

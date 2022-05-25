@@ -17,7 +17,19 @@ class UsersController < ApplicationController
        end
   end
 
+  def edit
+  end
+
+  def update
+    if @document.update document_params
+      flash[:success] = "Изменено!"
+      redirect_to documents_path
+    else
+      render :edit
+    end
+  end
+
     def user_params
-        params.require(:user).permit(:login, :password, :password_confirmation)
+        params.require(:user).permit(:login, :password, :password_confirmation, :role)
     end
 end

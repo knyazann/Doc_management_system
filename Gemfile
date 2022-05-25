@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'letter_opener'
 gem 'pdfjs_viewer-rails'
+gem "actionpack-page_caching"
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
@@ -33,6 +34,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -44,6 +47,12 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Redis Server
+  gem 'redis' 
+  gem 'redis-namespace' 
+  gem 'redis-rails' 
+  gem 'redis-rack-cache' 
 end
 
 group :test do

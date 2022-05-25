@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
 before_action :require_authentication
 before_action :set_document!, only: %i[edit update show destroy]
+
   def index
     @documents = @current_user.documents.all
   end

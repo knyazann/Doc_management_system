@@ -1,16 +1,13 @@
 <% if user_signed_in? %>
-            <li class="dropdown">
-                <%= link_to current_user.login, '#', class: 'nav-link px-2 dropdown-toggle', data: {"bs-toggle": 'dropdown'} %>
-              
-              <ul class="dropdown-menu">
-
-                <li><hr class="dropdown-divider"></li>
-
-                <li>
-                  <%= link_to 'Выход', session_path, class: 'dropdown-item', data: {method: :delete} %>
-                </li>
-              </ul>
-             </li>
+  <div class="mb-3 row">
+   <div class="col-sm-7 ">
+<h1>Профиль пользователя <%=current_user.login%>
+</h1></div>
+<div class="col-sm-3 ">
+<%= link_to 'Выйти', session_path, data: {method: :delete}, class: 'shine-button' %>
+</div>
+</div>
+                
           <% else %>
             <li><%= link_to 'Регистрация', new_user_path,
               class: 'nav-link px-2' %></li>

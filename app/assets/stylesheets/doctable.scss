@@ -1,0 +1,32 @@
+.doc-table {
+    border-collapse: collapse;
+    font-family: "Lucida Grande", sans-serif;
+   }
+  .doc-table caption {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px  4px 0 #303C6C;
+    color: #303C6C;
+    font-family: "Roboto Slab",serif;
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin: 0;
+    caption-side: top;
+  }
+  .doc-table td, .doc-table th {
+    padding: 10px;
+  }
+  .doc-table th {
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: normal;
+  }
+  .doc-table tr:nth-child(2n) {
+    background: #E5E5E5;
+  }
+  .doc-table td:last-of-type {
+    text-align: center;
+  }

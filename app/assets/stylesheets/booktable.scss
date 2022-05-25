@@ -1,0 +1,30 @@
+.book-table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 18px;
+    background: #FFFAFA;
+    text-align: left;
+    border-collapse: collapse;
+    color: #3E4347;
+  }
+
+.book-table caption {
+    caption-side: top;
+  }
+
+  .book-table th:first-child, .book-table td:first-child {
+  color: #303C6C;
+  border-left: none;
+  }
+  .book-table th {
+  font-weight: normal;
+  border-bottom: 2px solid #82acdd;
+  border-right: 20px solid white;
+  border-left: 20px solid white;
+  padding: 8px 10px;
+  }
+  .book-table td {
+  border-right: 20px solid white;
+  border-left: 20px solid white;
+  padding: 12px 10px;
+  color: #8b8e91;
+  }

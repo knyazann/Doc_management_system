@@ -15,7 +15,7 @@ class StepsController < ApplicationController
           render 'routes/show'
         else
           flash[:warning] = "Ошибка!"
-          redirect_to documents_path
+          redirect_to document_path(@route.document)
         end
       end
 
