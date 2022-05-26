@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_25_164154) do
+ActiveRecord::Schema.define(version: 2022_05_26_190247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 2022_05_25_164154) do
     t.string "testing"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "dep_name"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_departments_on_user_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -134,6 +142,8 @@ ActiveRecord::Schema.define(version: 2022_05_25_164154) do
     t.string "phone"
     t.string "email"
     t.string "post"
+    t.bigint "department_id"
+    t.index ["department_id"], name: "index_users_on_department_id"
     t.index ["login"], name: "index_users_on_login", unique: true
   end
 

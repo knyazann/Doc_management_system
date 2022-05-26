@@ -1,0 +1,35 @@
+.profile {
+    margin-left: 0;
+    list-style: none;
+    counter-reset: li;
+    }
+    .profile li {
+    position: relative;
+    margin-bottom: 1.5em;
+    border: 3px solid #CADFCF;
+    padding: 1em;
+    border-radius: 4px;
+    background: #FEFEFE;
+    color: #5C2018 ;
+    font-family: "Trebuchet MS", "Lucida Sans";
+    font-size: 18px;
+    }
+    .profile li:before {
+    position: absolute;
+    top: -0.7em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    font-size: 18px;
+    font-weight: bold;
+    color: #303C6C;
+    background: #FEFEFE;
+    border-radius: 50%;
+    }
+    .profile li#surname:before {content: 'Фамилия'; }
+    .profile li#name:before {content: 'Имя'; }
+    .profile li#patronymic:before {content: 'Отчество'; }
+    .profile li#phone:before {content: 'Телефон'; }
+    .profile li#email:before {content: 'E-mail'; }
+    .profile li#post:before {content: 'Должность'; }
+    .profile li#department:before {content: 'Отдел'; }
+    

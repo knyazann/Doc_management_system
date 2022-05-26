@@ -1,17 +1,4 @@
-<% if user_signed_in? %>
-  <div class="mb-3 row">
-   <div class="col-sm-7 ">
-<h1>Профиль пользователя <%=current_user.login%>
-</h1></div>
-<div class="col-sm-3 ">
-<%= link_to 'Выйти', session_path, data: {method: :delete}, class: 'shine-button' %>
-</div>
-</div>
-                
-          <% else %>
-            <li><%= link_to 'Регистрация', new_user_path,
-              class: 'nav-link px-2' %></li>
+<li><%= link_to 'Регистрация', new_user_path, class: 'nav-link px-2' %></li>
+<li><%= link_to 'Вход', new_session_path, class: 'nav-link px-2' %></li>
 
-            <li><%= link_to 'Вход', new_session_path,
-              class: 'nav-link px-2' %></li>
-            <% end %>
+

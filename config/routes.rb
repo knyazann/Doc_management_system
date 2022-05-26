@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resource :session, only: %i[new create destroy] # в единственном числе, чтобы при DELETE не запрашивался id
-  resources :users, only: %i[index new create]
+  resources :users
   resources :goals, only: %i[new create destroy show] do
     resources :tasks, only: %i[create destroy]
   end

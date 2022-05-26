@@ -1,0 +1,42 @@
+<%= link_to '« назад', user_path(@current_user), class: 'previous' %>
+<h1>Редактирование профиля <%=@current_user.login%></h1>
+</br>
+<%= form_with model: @user do |f| %>
+  <ol class="profile">
+<div class="mb-2 row">
+    <div class="col-sm-5"> <li id="surname">
+      <%= f.text_field :surname, style: "border: none;", value: @current_user.surname %>
+    </li></div>
+</div>
+<div class="mb-2 row">
+    <div class="col-sm-5"> <li id="name">
+      <%= f.text_field :name, style: "border: none;", value: @current_user.name %>
+    </li></div>
+    <div class="col-sm-5"> <li id="patronymic">
+      <%= f.text_field :patronymic, style: "border: none;", value: @current_user.patronymic %>
+    </li></div>
+</div>
+<div class="mb-2 row">
+    <div class="col-sm-5"> <li id="phone">
+      <%= f.text_field :phone, style: "border: none;", value: @current_user.phone %>
+    </li></div>
+    <div class="col-sm-5"> <li id="email">
+      <%= f.text_field :email, style: "border: none;", value: @current_user.email %>
+    </li></div>
+</div>
+<div class="mb-2 row">
+    <div class="col-sm-5"> <li id="post">
+      <%= f.text_field :post, style: "border: none;", value: @current_user.post %>
+    </li></div>
+    <div class="col-sm-5"> <li id="department">
+      <%= f.text_field :department_id, list: 'dep', style: "border: none;" %>
+      <datalist id="dep">
+        <% Department.all.each do |dep| %>
+          <option label="<%= dep.dep_name %>" value ="<%= dep.id %>"></option>
+        <% end %>
+      </datalist></li></div>
+</div>
+</ol>
+
+<%= f.submit "Сохранить изменения", class: 'button' %>
+<%end%>

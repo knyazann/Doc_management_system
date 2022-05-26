@@ -1,0 +1,27 @@
+  <div class="mb-3 row">
+   <div class="col-sm-7 ">
+<h1>Профиль пользователя <%=@current_user.login%>
+</h1></div>
+<div class="col-sm-3 ">
+<%= link_to 'Выйти', session_path, data: {method: :delete}, class: 'shine-button' %>
+</div>
+</div>
+<ol class="profile">
+<div class="mb-2 row">
+    <div class="col-sm-5"> <li id="surname"><%= @current_user.surname%></li> </div>
+    <div class="col-sm-5"> <%= link_to '🖉 Изменить данные', edit_user_path(@current_user), style: 'color:#5C2018; font-size: 18px;' %>  </div>
+</div>
+<div class="mb-2 row">
+    <div class="col-sm-5"> <li id="name"><%= @current_user.name%></li> </div>
+    <div class="col-sm-5"> <li id="patronymic"><%= @current_user.patronymic%></li> </div>
+</div>
+<div class="mb-2 row">
+    <div class="col-sm-5"> <li id="phone"><%= @current_user.phone%></li> </div>
+    <div class="col-sm-5"> <li id="email"><%= @current_user.email%></li> </div>
+</div>
+<div class="mb-2 row">
+    <div class="col-sm-5"> <li id="post"><%= @current_user.post%></li> </div>
+    <div class="col-sm-5"> <li id="department"><%= @department.dep_name%></li> </div>
+</div>
+</ol>
+
