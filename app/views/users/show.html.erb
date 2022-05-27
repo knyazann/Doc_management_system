@@ -21,7 +21,12 @@
 </div>
 <div class="mb-2 row">
     <div class="col-sm-5"> <li id="post"><%= @current_user.post%></li> </div>
-    <div class="col-sm-5"> <li id="department"><%= @department.dep_name%></li> </div>
+    <div class="col-sm-5"> <li id="department">
+     <%unless @current_user.department_id.nil? %>
+        <%= @department.dep_name %>
+     <%else%>
+        не указан
+     <%end%></li> </div>
 </div>
 </ol>
 

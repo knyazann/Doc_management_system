@@ -30,7 +30,13 @@
   <label for="slide-item-4"><p class="icon">🕮</p><span><%= link_to 'Справочники', handbooks_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
   
   <input type="radio" name="slideItem" id="slide-item-5" class="slide-toggle"/>
-  <label for="slide-item-5"><p class="icon">👤</p><span><%= link_to 'Профиль', users_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
+  <label for="slide-item-5"><p class="icon">👤</p><span>
+   <%if user_signed_in? %>
+        <%= link_to 'Профиль', user_path(current_user), style: 'color:#303C6C; text-decoration:none;' %>
+     <%else%>
+        <%= link_to 'Профиль', users_path, style: 'color:#303C6C; text-decoration:none;' %>
+     <%end%>
+  </span></label>
    
   <div class="clear"></div>
   

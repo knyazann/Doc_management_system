@@ -54,7 +54,7 @@
     <%= f.label :step_type, "Выберите тип этапа "%> :    
     <%= f.select :step_type, ['Рассмотрение', 'Согласование', 'Подписание'], placeholder: 'Выберите тип этапа'%>
     
-    <%= f.label :step_type, "Выберите участников "%> :    
+    <%= f.label :step_type, "Выберите участника "%> :    
     <%= f.text_field :user_id, list: 'user', class: 'form-control form-control-lg'%>
       <datalist id="user">
         <% User.all.each do |user| %>

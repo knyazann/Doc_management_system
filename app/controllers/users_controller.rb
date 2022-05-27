@@ -2,9 +2,6 @@ class UsersController < ApplicationController
   before_action :require_authentication, only: %i[edit update show]
   before_action :set_user!, only: %i[edit update]
   def index
-    if user_signed_in?
-      render :show
-    end
   end
 
   def new
