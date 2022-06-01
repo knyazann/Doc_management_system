@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_26_190247) do
+ActiveRecord::Schema.define(version: 2022_06_01_113607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,11 +49,18 @@ ActiveRecord::Schema.define(version: 2022_05_26_190247) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "contractors", force: :cascade do |t|
+    t.string "contr_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "departments", force: :cascade do |t|
     t.string "dep_name"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "dep_code"
     t.index ["user_id"], name: "index_departments_on_user_id"
   end
 
@@ -61,10 +68,12 @@ ActiveRecord::Schema.define(version: 2022_05_26_190247) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "number"
+    t.string "number"
     t.bigint "user_id"
     t.string "status"
     t.string "doc_type"
+    t.bigint "contractor_id"
+    t.index ["contractor_id"], name: "index_documents_on_contractor_id"
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
 

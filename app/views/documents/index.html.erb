@@ -1,4 +1,8 @@
 <div class="row">
+<div class="col-sm-3">
+<%= link_to 'Создать документ', new_document_path, class: 'shine-button' %>
+<%= render 'menu'%>
+</div>
  <div class="col-sm-6">
   <table class="doc-table">
    <caption>
@@ -11,18 +15,14 @@
   </tr> 
   <% @documents.each do |doc| %>
     <tr> <!--ряд с ячейками тела таблицы-->
-     <td><%= doc.name%>Договор о продаже</td>
+     <td><%= doc.name%></td>
      <td></td>
-     <td><%= doc.doc_type%>Договор</td>
+     <td><%= doc.doc_type%></td>
      <td></td>
-     <td><%=link_to "Посмотреть", document_path(doc),  style: 'color:#5C2018;' %></td>
-    </tr> 
-  <% end %>
+     <td><%=link_to "Посмотреть", documents_path,  style: 'color:#5C2018;' %></td>
+    </tr>    
+  <%end %>
  </table>
-</div>
-
-<div class="col">
-<%= link_to 'Создать документ', new_document_path, class: 'shine-button' %>
 </div>
 </div>
  

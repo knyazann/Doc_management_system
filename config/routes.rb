@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :tasks, only: %i[create destroy]
   end
   resources :handbooks, only: %i[index]
+
+  get '/departments_link', to: 'handbooks#departments_link', as: 'departments_link'
+
   #get "/routes/:id", to: 'routes#show', as: 'route'  
   get "/goals_inbox", to: 'goals#index_inbox', as: 'inbox_goals' 
   get "/goals_outbox", to: 'goals#index_outbox', as: 'outbox_goals' 

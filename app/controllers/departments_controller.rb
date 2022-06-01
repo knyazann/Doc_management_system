@@ -1,6 +1,5 @@
 class DepartmentsController < ApplicationController
-#before_action :require_authentication
-#before_action :set_document!, only: %i[edit update show destroy]
+before_action :require_authentication
 
   
   def new 
@@ -11,8 +10,12 @@ class DepartmentsController < ApplicationController
     @department = Department.new department_params
   end
 
+  def update
+    @document.update document_params
+  end
+
   private
     def department_params
-      params.require(:department).permit(:dep_name)
+      params.require(:department).permit(:dep_name, :dep_code)
     end
 end

@@ -26,6 +26,7 @@
     border-radius: 50%;
     }
     .profile li#surname:before {content: 'Фамилия'; }
+    .profile li#role:before {content: 'Роль'; }
     .profile li#name:before {content: 'Имя'; }
     .profile li#patronymic:before {content: 'Отчество'; }
     .profile li#phone:before {content: 'Телефон'; }

@@ -8,6 +8,9 @@ before_action :set_document!, only: %i[edit update show destroy]
   
   def new 
     @document = Document.new
+    dep = Department.find_by id: @current_user.department_id
+    Document.all.nil? ? doc_count = 1 : doc_count = Document.last.id+1
+    @reg_number = "#{doc_count}/#{dep.dep_code}"
   end
 
   def show
@@ -45,7 +48,7 @@ before_action :set_document!, only: %i[edit update show destroy]
 
   private
     def document_params
-      params.require(:document).permit(:number, :name, :file, :doc_type)
+      params.require(:document).permit(:number, :name, :file, :doc_type, :contractor_id)
     end
 
     def set_document!

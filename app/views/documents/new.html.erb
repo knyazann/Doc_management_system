@@ -14,16 +14,16 @@
         <%= form_with model: @document do |f| %>
 
         <%= f.label :number, "Регистрационный номер" %>
-        <%= f.text_field :number, placeholder: 'Регистрационный номер', class: 'form-control form-control-lg' %>
+        <%= f.text_field :number, disabled: true, class: 'form-control form-control-lg', value: @reg_number %>
   
         <%= f.label :name, "Название документа" %>
         <%= f.text_field :name, placeholder: 'Название документа', class: 'form-control form-control-lg', style: 'focus:on' %>
 
         <%= f.label :doc_type, "Тип документа" %>
-        <%= f.select :doc_type, ['Договор', 'Записка', 'Заявление'], placeholder: 'Выберите тип документа'%>
+        <%= f.select :doc_type, ['Договор', 'Записка', 'Заявление', 'Приказ', 'Протокол'], placeholder: 'Выберите тип документа'%>
 
         <%= f.label :name, "Контрагент" %>
-        <%= f.text_field :name, placeholder: 'Контрагент', class: 'form-control form-control-lg' %>
+        <%= f.select :doc_type, ['Акрихин', 'Записка', 'Заявление', 'Приказ', 'Протокол'], placeholder: 'Выберите тип документа'%>
     
         <%= f.label "Прикрепить файл" %>
         <%= f.file_field :file %>

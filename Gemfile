@@ -25,6 +25,7 @@ gem 'letter_opener'
 gem 'pdfjs_viewer-rails'
 gem "actionpack-page_caching"
 
+gem 'coffee-rails'
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 

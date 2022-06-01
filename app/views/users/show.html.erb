@@ -9,7 +9,10 @@
 <ol class="profile">
 <div class="mb-2 row">
     <div class="col-sm-5"> <li id="surname"><%= @current_user.surname%></li> </div>
-    <div class="col-sm-5"> <%= link_to '🖉 Изменить данные', edit_user_path(@current_user), style: 'color:#5C2018; font-size: 18px;' %>  </div>
+    <div class="col-sm-5"> <li id="role">
+        <% if @current_user.role == 1%> Обычный пользователь <%end%>
+        <% if @current_user.role == 2%> Администратор <%end%></li> 
+    </div>
 </div>
 <div class="mb-2 row">
     <div class="col-sm-5"> <li id="name"><%= @current_user.name%></li> </div>
@@ -29,4 +32,10 @@
      <%end%></li> </div>
 </div>
 </ol>
+<div class="mb-2 row">
+ <div class="col-sm-5"> 
+    <%= link_to '🖉 Изменить данные', edit_user_path(@current_user), style: 'color:#5C2018; font-size: 18px;'%>
+ </div>
+</div>  
+
 

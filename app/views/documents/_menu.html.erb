@@ -1,0 +1,13 @@
+<div class="widget-doc">
+  <ul>
+    <li><%= link_to 'Все документы', handbooks_path, class: 'a' %></li>
+    <li><%= link_to 'Мои документы', departments_link_path, class: 'a' %></li>
+    
+    <li>
+    Номер документа<%= text_field_tag :doc_type, params[:search_num], class:'form-control mb-2' %>
+    Название документа<%= text_field_tag :doc_type, params[:search_num], class:'form-control mb-2' %>
+    Тип документа<%=select_tag :doc_type, options_for_select([ 'Договор', 'Записка', 'Заявление', 'Приказ', 'Протокол' ]. insert(0, "Выберите тип")), class:'form-select mb-2' %> 
+    Контрагент<%=select_tag :doc_type, options_for_select([ 'Акрихин', 'Записка', 'Заявление', 'Приказ', 'Протокол' ]. insert(0, "Выберите контрагента")), class:'form-select mb-2' %> 
+     <%= submit_tag "🔍 Найти", class: 'btn btn-light' %> </li>
+  </ul>
+</div>

@@ -9,7 +9,7 @@
     <%= link_to "маршрут #{route.route_name}", document_route_path(@document, route) %> 
     <% end %> 
       <%#= link_to "download #{@document.name}", rails_blob_path(@document.file, disposition: "attachment") %>
-      <%#= link_to 'Destroy', document_path(@document), data: {method: :delete, confirm: 'Are you sure?'} %>
+      <%= link_to 'Destroy', document_path(@document), data: {method: :delete, confirm: 'Are you sure?'} %>
       
 
 
@@ -32,7 +32,7 @@
     <caption style="caption-side: top;">Атрибуты документа<caption> 
     <tr>
     <td style="font-weight: 500;">Регистрационный номер:</td>
-    <td >№ 1/01</td>
+    <td >1/01</td>
     </tr>
     <tr>
     <td style="font-weight: 500;">Тип документа:</td>
@@ -40,7 +40,7 @@
     </tr>
     <tr>
     <td style="font-weight: 500;">Контрагент:</td>
-    <td >ОАО "Акрихин"</td>
+    <td >Акрихин</td>
     </tr>
     </table>
     </br>
@@ -54,7 +54,7 @@
         
     
      <div class="col-sm-8">
-     <iframe src= <%= pdfjs.full_path(file: rails_blob_path(@document.file, disposition: "attachment")) %> width="700" height="600" style="border: none; float:right"> </iframe>
+     <iframe src= <%#= pdfjs.full_path(file: rails_blob_path(@document.file, disposition: "attachment")) %> width="700" height="600" style="border: none; float:right"> </iframe>
 </div>
 
 
