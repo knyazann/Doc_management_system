@@ -7,6 +7,7 @@ before_action :set_document!, only: %i[edit update show destroy]
   end
   
   def new 
+    @contractors = Contractor.all
     @document = Document.new
     dep = Department.find_by id: @current_user.department_id
     Document.all.nil? ? doc_count = 1 : doc_count = Document.last.id+1

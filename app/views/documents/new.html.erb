@@ -13,17 +13,17 @@
         <h3>Новый документ</h3>
         <%= form_with model: @document do |f| %>
 
-        <%= f.label :number, "Регистрационный номер" %>
+        <%= f.label "Регистрационный номер" %>
         <%= f.text_field :number, disabled: true, class: 'form-control form-control-lg', value: @reg_number %>
   
-        <%= f.label :name, "Название документа" %>
+        <%= f.label "Название документа" %>
         <%= f.text_field :name, placeholder: 'Название документа', class: 'form-control form-control-lg', style: 'focus:on' %>
 
-        <%= f.label :doc_type, "Тип документа" %>
+        <%= f.label "Тип документа" %>
         <%= f.select :doc_type, ['Договор', 'Записка', 'Заявление', 'Приказ', 'Протокол'], placeholder: 'Выберите тип документа'%>
 
-        <%= f.label :name, "Контрагент" %>
-        <%= f.select :doc_type, ['Акрихин', 'Записка', 'Заявление', 'Приказ', 'Протокол'], placeholder: 'Выберите тип документа'%>
+        <%= f.label "Контрагент" %>
+        <%= f.select :contractor_id, options_for_select(Hash[@contractors.map { |c| [c.contr_name, c.id]}].merge({"нет" => nil}) )%>
     
         <%= f.label "Прикрепить файл" %>
         <%= f.file_field :file %>
