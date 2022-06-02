@@ -1,13 +1,13 @@
 <div class="widget-doc">
   <ul>
-    <li><%= link_to 'Все документы', handbooks_path, class: 'a' %></li>
-    <li><%= link_to 'Мои документы', departments_link_path, class: 'a' %></li>
+    <li><%= link_to 'Все документы', documents_path, class: 'a' %></li>
+    <li><%= link_to 'Мои документы', my_documents_path, class: 'a' %></li>
     
-    <li>
-    Номер документа<%= text_field_tag :doc_type, params[:search_num], class:'form-control mb-2' %>
-    Название документа<%= text_field_tag :doc_type, params[:search_num], class:'form-control mb-2' %>
-    Тип документа<%=select_tag :doc_type, options_for_select([ 'Договор', 'Записка', 'Заявление', 'Приказ', 'Протокол' ]. insert(0, "Выберите тип")), class:'form-select mb-2' %> 
-    Контрагент<%=select_tag :doc_type, options_for_select([ 'Акрихин', 'Записка', 'Заявление', 'Приказ', 'Протокол' ]. insert(0, "Выберите контрагента")), class:'form-select mb-2' %> 
-     <%= submit_tag "🔍 Найти", class: 'btn btn-light' %> </li>
+    <li> <%=form_tag(documents_path, :method => "get", from: "search-form") do %>
+    Номер документа<%= text_field_tag :search_number, params[:search_number], class:'form-control mb-2' %>
+    Название документа<%= text_field_tag :search_name, params[:search_name], class:'form-control mb-2' %>
+    Тип документа<%= text_field_tag :search_type, params[:search_type], class:'form-control mb-2' %> 
+    Контрагент<%=select_tag :search_contractor, options_for_select(Hash[Contractor.all.map { |c| [c.contr_name, c.id]}].merge({"нет" => ""}), selected: params[:search_contractor]), class:'form-select mb-2'%> 
+     <%= submit_tag "🔍 Найти", class: 'btn btn-light' %> <%end%></li>
   </ul>
 </div>

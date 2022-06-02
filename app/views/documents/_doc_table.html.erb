@@ -1,0 +1,14 @@
+<tr> <!--ряд с ячейками заголовков-->
+    <th colspan="2">название</th>
+    <th colspan="2">тип документа</th>
+    <th></th>
+  </tr> 
+  <% @documents.each do |doc| %>
+    <tr> <!--ряд с ячейками тела таблицы-->
+     <td><%= doc.name%></td>
+     <td></td>
+     <td><%= doc.doc_type%></td>
+     <td></td>
+     <td><%=link_to "Посмотреть", documents_path,  style: 'color:#5C2018;' %></td>
+    </tr>    
+  <%end %>

@@ -3,7 +3,20 @@ before_action :require_authentication
 before_action :set_document!, only: %i[edit update show destroy]
 
   def index
+    if params[:search_number] or params[:search_name] or params[:search_type] or params[:search_contractor]
+      @documents = search
+    else
+      @documents = Document.all.order('created_at DESC')
+    end
+  end
+
+  def search
+    @documents = Document.search(params[:search_number], params[:search_name], params[:search_type], params[:search_contractor])
+  end
+
+  def my_documents
     @documents = @current_user.documents.all
+    render 'documents/my_doc'
   end
   
   def new 
@@ -34,10 +47,10 @@ before_action :set_document!, only: %i[edit update show destroy]
 
   def update
     if @document.update document_params
-      flash[:success] = "Изменено!"
-      redirect_to documents_path
+      #flash[:success] = "Изменено!"
+      #redirect_to documents_path
     else
-      render :edit
+      #render :edit
     end
   end
 

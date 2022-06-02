@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   resources :goals, only: %i[new create destroy show] do
     resources :tasks, only: %i[create destroy]
   end
-  resources :handbooks, only: %i[index]
+  resources :handbooks, only: %i[index] 
 
-  get '/departments_link', to: 'handbooks#departments_link', as: 'departments_link'
+  get '/departments', to: 'handbooks#departments_link', as: 'departments_link'
+
+  get '/my_documents', to: 'documents#my_documents', as: 'my_documents'
 
   #get "/routes/:id", to: 'routes#show', as: 'route'  
   get "/goals_inbox", to: 'goals#index_inbox', as: 'inbox_goals' 
