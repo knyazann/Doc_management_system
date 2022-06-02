@@ -14,7 +14,7 @@
         <%= form_with model: @document do |f| %>
 
         <%= f.label "Регистрационный номер" %>
-        <%= f.text_field :number, disabled: true, class: 'form-control form-control-lg', value: @reg_number %>
+        <%= f.text_field :number, readonly: true, class: 'form-control form-control-lg', value: @reg_number %>
   
         <%= f.label "Название документа" %>
         <%= f.text_field :name, placeholder: 'Название документа', class: 'form-control form-control-lg', style: 'focus:on' %>

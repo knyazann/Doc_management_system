@@ -47,10 +47,10 @@ before_action :set_document!, only: %i[edit update show destroy]
 
   def update
     if @document.update document_params
-      #flash[:success] = "Изменено!"
-      #redirect_to documents_path
+      flash[:success] = "Изменено!"
+      redirect_to documents_path
     else
-      #render :edit
+      render :edit
     end
   end
 
