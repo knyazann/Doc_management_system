@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :routes, only: %i[new create destroy show] do
-    resources :steps, only: %i[create show]
+    resources :steps, only: %i[create show destroy]
   end 
   
   

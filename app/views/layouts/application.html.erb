@@ -17,33 +17,25 @@
  
 <nav class="slidemenu">
  
-  <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle"/>
-  <label for="slide-item-1"><p class="icon">✉</p><span><%= link_to 'Входящие задания', inbox_goals_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
-
-  <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
-  <label for="slide-item-2"><p class="icon">✎</p><span><%= link_to 'Исходящие задания', outbox_goals_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
-
-  <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
-  <label for="slide-item-3"><p class="icon">🗎</p><span><%= link_to 'Документы', documents_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
+  <%= content_tag(:a, href:inbox_goals_path, class:class_names({ active: current_page?(inbox_goals_path) })) do %>
+    <p class="icon">✉</p><span>Входящие задания</span><% end %>
   
-  <input type="radio" name="slideItem" id="slide-item-4" class="slide-toggle"/>
-  <label for="slide-item-4"><p class="icon">🕮</p><span><%= link_to 'Справочники', handbooks_path, style: 'color:#303C6C; text-decoration:none;' %></span></label>
-  
-  <input type="radio" name="slideItem" id="slide-item-5" class="slide-toggle"/>
-  <label for="slide-item-5"><p class="icon">👤</p><span>
-   <%if user_signed_in? %>
-        <%= link_to 'Профиль', user_path(current_user), style: 'color:#303C6C; text-decoration:none;' %>
+  <%= content_tag(:a, href:outbox_goals_path, class:class_names({ active: current_page?(outbox_goals_path) })) do %>
+    <p class="icon">✎</p><span>Исходящие задания</span><% end %>
+
+  <%= content_tag(:a, href:documents_path,class:class_names({ active: current_page?(documents_path) })) do %>
+    <p class="icon">🗎</p><span>Документы</span><% end %>
+
+  <%= content_tag(:a, href:handbooks_path,class:class_names({ active: current_page?(handbooks_path) })) do %>
+    <p class="icon">🕮</p><span>Справочники</span><% end %>
+
+  <%if user_signed_in? %>
+        <%= content_tag(:a, href:user_path(current_user),class:class_names({ active: current_page?(user_path(current_user)) })) do %>
+    <p class="icon">👤</p><span>Профиль</span><% end %>
      <%else%>
-        <%= link_to 'Профиль', users_path, style: 'color:#303C6C; text-decoration:none;' %>
-     <%end%>
-  </span></label>
-   
-  <div class="clear"></div>
-  
-  <div class="slider">
-    <div class="bar"></div>
-  </div>
-  
+        <%= content_tag(:a, href:users_path,class:class_names({ active: current_page?(users_path) })) do %>
+    <p class="icon">👤</p><span>Профиль</span><% end %>
+     <%end%>    
 </nav>
 
 </div>    

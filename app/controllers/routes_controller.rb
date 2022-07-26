@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
   before_action :require_authentication
-  before_action :set_document!, only: %i[new create]
+  before_action :set_document!, only: %i[new create destroy]
   before_action :set_route!, only: %i[show destroy]
 
       def create

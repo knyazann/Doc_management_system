@@ -7,6 +7,7 @@
 <div class="row">
     <% @routes.each do |route| %>
     <%= link_to "маршрут #{route.route_name}", document_route_path(@document, route) %> 
+    <%= link_to " удалить #{route.route_name}", document_route_path(@document, route), data: {method: :delete}, style: 'color:#5C2018;' %> 
     <% end %> 
       <%#= link_to "download #{@document.name}", rails_blob_path(@document.file, disposition: "attachment") %>
       <%= link_to 'Destroy', document_path(@document), data: {method: :delete, confirm: 'Are you sure?'} %>
