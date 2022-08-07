@@ -5,8 +5,11 @@ Rails.application.routes.draw do
     resources :tasks, only: %i[create destroy]
   end
   resources :handbooks, only: %i[index] 
-
   get '/departments', to: 'handbooks#departments_link', as: 'departments_link'
+  get '/staff', to: 'handbooks#staff_link', as: 'staff_link'
+ 
+
+  
 
   get '/my_documents', to: 'documents#my_documents', as: 'my_documents'
 

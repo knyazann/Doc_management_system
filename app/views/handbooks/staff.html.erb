@@ -1,0 +1,33 @@
+<%= render 'menu'%>
+
+<div class="col-sm-9">
+<table class="book-table">
+<caption>Сотрудники</caption>
+  <colgroup>
+      <col style="background:#C7DAF0;">
+  </colgroup>
+  <tr>
+    <th>ФИО</th>
+    <th>Телефон</th>
+    <th>E-mail</th>
+    <th>Должность</th>
+    <th>Отдел</th>
+    </tr>
+  <% @staff.each do |employee| %>
+  <tr>
+    <td><%= employee.surname%> <%= employee.name%> <%= employee.patronymic%></td>
+    <td><%= employee.phone%></td>
+    <td><%= employee.email%></td>
+    <td><%= employee.post%></td>
+    <td>
+     <%if employee.department_id.nil? %>
+      не указан        
+     <%else%>
+        <%= @departments.find(employee.department_id).dep_name %>
+     <%end%>
+    </td>
+  </tr>
+  <%end%>
+</table>
+</div>
+</div>

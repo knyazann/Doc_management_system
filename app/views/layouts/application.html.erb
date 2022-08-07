@@ -17,23 +17,24 @@
  
 <nav class="slidemenu">
  
-  <%= content_tag(:a, href:inbox_goals_path, class:class_names({ active: current_page?(inbox_goals_path) })) do %>
+  <%= content_tag(:a, href:inbox_goals_path, class:('active' if current_page?(inbox_goals_path))) do %>
     <p class="icon">✉</p><span>Входящие задания</span><% end %>
   
-  <%= content_tag(:a, href:outbox_goals_path, class:class_names({ active: current_page?(outbox_goals_path) })) do %>
+  <%= content_tag(:a, href:outbox_goals_path, class:('active' if current_page?(outbox_goals_path))) do %>
     <p class="icon">✎</p><span>Исходящие задания</span><% end %>
 
-  <%= content_tag(:a, href:documents_path,class:class_names({ active: current_page?(documents_path) })) do %>
+  <%= content_tag(:a, href:documents_path, class:('active' if current_page?(documents_path))) do %>
     <p class="icon">🗎</p><span>Документы</span><% end %>
 
-  <%= content_tag(:a, href:handbooks_path,class:class_names({ active: current_page?(handbooks_path) })) do %>
+  <%= content_tag(:a, href:handbooks_path,
+      class:('active' if current_page?(handbooks_path) || current_page?(staff_link_path) || current_page?(departments_link_path))) do %>
     <p class="icon">🕮</p><span>Справочники</span><% end %>
 
   <%if user_signed_in? %>
-        <%= content_tag(:a, href:user_path(current_user),class:class_names({ active: current_page?(user_path(current_user)) })) do %>
+        <%= content_tag(:a, href:user_path(current_user),class: ('active' if current_page?(user_path(current_user)))) do %>
     <p class="icon">👤</p><span>Профиль</span><% end %>
      <%else%>
-        <%= content_tag(:a, href:users_path,class:class_names({ active: current_page?(users_path) })) do %>
+        <%= content_tag(:a, href:users_path,class: ('active' if current_page?(users_path))) do %>
     <p class="icon">👤</p><span>Профиль</span><% end %>
      <%end%>    
 </nav>

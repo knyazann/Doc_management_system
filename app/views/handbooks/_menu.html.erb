@@ -1,9 +1,12 @@
+<div class="row">
+<div class="col-sm-3">
 <div class="widget">
   <h3>Справочники</h3>
   <ul>
-    <li><%= link_to 'Сотрудники', handbooks_path, class: 'a' %></li>
-    <li><%= link_to 'Отделы', departments_link_path, class: 'a' %></li>
+    <li><%= link_to 'Сотрудники', staff_link_path, class: 'a', style:('font-weight:bold;' if current_page?(staff_link_path)) %></li>
+    <li><%= link_to 'Отделы', departments_link_path, class: 'a', style:('font-weight:bold;' if current_page?(departments_link_path)) %></li>
     <li><%= link_to 'Маршруты', root_path, class: 'a' %></li>
     <li><%= link_to 'Типы документов', root_path, class: 'a' %></li>
   </ul>
+</div>
 </div>
