@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :require_authentication
   before_action :set_goal!
-  before_action :set_task!, only: :destroy 
+  before_action :set_task!, only: :destroy
       
       def create
         @task = @goal.tasks.build task_params
@@ -15,8 +15,12 @@ class TasksController < ApplicationController
         end
       end
 
+      def show
+        @task = @current_user.tasks.find params[:id]
+      end
+
       def destroy
-        @goal.destroy
+        @task.destroy
         flash[:success] = "Задание удалено!"
         redirect_to goals_path
       end

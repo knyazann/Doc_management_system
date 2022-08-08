@@ -6,7 +6,6 @@
   </caption>
   <tr> <!--ряд с ячейками заголовков-->
     <th>тема</th>
-    <th>описание</th>
     <th>дата начала</th>
     <th>срок исполнения</th>
     <th></th>
@@ -14,10 +13,9 @@
   <% @goals.each do |goal| %>
     <tr> <!--ряд с ячейками тела таблицы-->
      <td><%= goal.topic%></td>
-     <td><%= goal.description%></td>
      <td><%= goal.start_date%></td>
-     <td>23.05.2022 13:00</td>
-     <td><%= link_to 'открыть', root_path, style: 'color:#5C2018;' %></td>
+     <td><%= goal.end_date%></td>
+     <td><%= link_to 'открыть', goal_path(goal), style: 'color:#5C2018;' %></td>
     </tr>    
   <% end %>
  </table>

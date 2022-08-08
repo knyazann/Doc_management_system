@@ -1,7 +1,7 @@
 <div class="widget-doc">
   <ul>
-    <li><%= link_to 'Все документы', documents_path, class: 'a' %></li>
-    <li><%= link_to 'Мои документы', my_documents_path, class: 'a' %></li>
+    <li><%= link_to 'Все документы', documents_path, class: 'a', style:('font-weight:bold;' if current_page?(documents_path)) %></li>
+    <li><%= link_to 'Мои документы', my_documents_path, class: 'a', style:('font-weight:bold;' if current_page?(my_documents_path)) %></li>
     
     <li> <%=form_tag(documents_path, :method => "get", from: "search-form") do %>
     Номер документа<%= text_field_tag :search_number, params[:search_number], class:'form-control mb-2' %>

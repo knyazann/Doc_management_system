@@ -8,10 +8,21 @@
   </colgroup>
   <tr>
     <th>Название</th>
-    </tr>
+    <th>Руководитель</th>
+  </tr>
+  <% @departments.each do |department| %>
   <tr>
-    <td>15-02</td>
-    </tr>
+    <td><%=department.dep_name%></td>
+    <td>
+     <%if department.user_id.nil? %>
+      не указан        
+     <%else%>
+        <%dep_head = @users.find(department.user_id)%>
+        <%= dep_head.surname%> <%= dep_head.name[0]%>.<%= dep_head.patronymic[0]%>.
+     <%end%>
+    </td>
+  </tr>
+  <%end%>  
 </table>
 </div>
 </div>

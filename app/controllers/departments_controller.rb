@@ -11,7 +11,7 @@ before_action :require_authentication
   end
 
   def update
-    @document.update document_params
+    @department.update department_params
   end
 
   private

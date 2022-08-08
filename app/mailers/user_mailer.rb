@@ -3,6 +3,7 @@ class UserMailer < ApplicationMailer
 
     def new_task_email
       @task = params[:task]
-      mail(to: @task.user.login, subject: 'Новое задание | OctoDocs')
+      @author = User.find_by(id: @task.goal.user_id)
+      mail(to: @task.user.email, subject: 'Новое задание | OctoDocs')
     end
 end

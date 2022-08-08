@@ -6,10 +6,11 @@
   <body>
   <h1><%= @task.goal.topic %></h1>
     <p>
-      Вам отправлено задание от: <%=@task.user.post%> <%=@task.user.surname%><br>
+      Вам отправлено задание от: <%=@author.post%> <%=@author.surname%> <%=@author.name[0]%>.<%=@author.patronymic[0]%>. <br>
     </p>
     <p>
-      Описание: <%= @task.description%>
+      Описание: <%= @task.goal.description%>. <br>
+      <%= @task.description%>.
     </p>
   </body>
 </html>

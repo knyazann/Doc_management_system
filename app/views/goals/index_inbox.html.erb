@@ -14,11 +14,12 @@
   <% @tasks.each do |task| %>
     <tr> <!--ряд с ячейками тела таблицы-->
      <td><%= task.goal.topic%></td>
-     <td><%= task.description%></td>
-     <td><%= task.goal.user_id%></td>
+     <td><%= task.goal.description%></td>
+     <%author = User.find_by(id: task.goal.user_id)%>
+      <td><%= author.surname%> <%= author.name[0]%>.<%= author.patronymic[0]%>.</td>
      <td>18.05.2022 14:00</td>
      <td>В работе</td>
-     <td><%#= link_to 'открыть', goal_path(goal), style: 'color:#5C2018;' %></td>
+     <td><%= link_to 'открыть', goal_task_path(task.goal.id, task), style: 'color:#5C2018;' %></td>
     </tr> 
   <% end %>
  </table>

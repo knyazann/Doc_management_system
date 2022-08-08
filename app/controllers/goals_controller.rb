@@ -60,7 +60,7 @@ include StepHelper
     private
     
     def goal_params
-      params.require(:goal).permit(:topic, :start_date, :end_date, :execution)
+      params.require(:goal).permit(:topic, :start_date, :end_date, :description)
     end
 
     def set_goal!

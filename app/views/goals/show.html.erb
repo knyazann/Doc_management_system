@@ -9,7 +9,7 @@
 <% @tasks.each do |task| %>
   <div class="mb-3 row">
     <div class="col-sm-3">
-      <%= @users.find(task.user_id).login %>
+      <%= @users.find(task.user_id).surname%> <%= @users.find(task.user_id).name%>
     </div>
 
     <div class="col-sm-5">
@@ -30,7 +30,7 @@
       <%= f.text_field :user_id, list: 'user', class: 'form-control form-control-lg', onclick: "upperCase();"  %>
       <datalist id="user">
         <% User.all.each do |user| %>
-          <option label="<%= user.login %>" value ="<%= user.login %>"></option>
+          <option label="<%=user.surname%> <%=user.name[0]%>.<%=user.patronymic[0]%>." value ="<%= user.id %>"></option>
         <% end %>
       </datalist>    
     </div>
@@ -46,6 +46,6 @@
     </div>
   </div>
 <div class="col-sm-6">
-  <%= f.submit "Сохранить", class: 'button'%>  </div>
+  <%= f.submit "Добавить", class: 'button'%>  </div>
 <% end %>
 

@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   resource :session, only: %i[new create destroy] # в единственном числе, чтобы при DELETE не запрашивался id
   resources :users
   resources :goals, only: %i[new create destroy show] do
-    resources :tasks, only: %i[create destroy]
+    resources :tasks, only: %i[create show destroy]
   end
   resources :handbooks, only: %i[index] 
   get '/departments', to: 'handbooks#departments_link', as: 'departments_link'
   get '/staff', to: 'handbooks#staff_link', as: 'staff_link'
- 
+
 
   
 

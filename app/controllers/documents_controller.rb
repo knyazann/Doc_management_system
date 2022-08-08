@@ -23,7 +23,7 @@ before_action :set_document!, only: %i[edit update show destroy]
     @contractors = Contractor.all
     @document = Document.new
     dep = Department.find_by id: @current_user.department_id
-    Document.all.nil? ? doc_count = 1 : doc_count = Document.last.id+1
+    Document.all.empty? ? doc_count = 1 : doc_count = Document.last.id+1
     @reg_number = "#{doc_count}/#{dep.dep_code}"
   end
 

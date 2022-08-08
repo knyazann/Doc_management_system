@@ -11,6 +11,8 @@ class HandbooksController < ApplicationController
     end
 
     def departments_link
+        @departments = Department.all
+        @users = User.all
         render 'handbooks/departments' 
     end
 end
