@@ -66,6 +66,6 @@ before_action :set_document!, only: %i[edit update show destroy]
     end
 
     def set_document!
-      @document = @current_user.documents.find params[:id]
+      @document = Document.find params[:id]
     end
 end
