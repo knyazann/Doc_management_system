@@ -1,24 +1,21 @@
-# README
+# Описание веб-приложения
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Doc_management_system - веб-приложение электронного документооборота.
 
-Things you may want to cover:
+ Функции: 
+* регистрация пользователей, редактирование профиля
+* регистрация документов
+* создание заданий
+* просмотр справочников
 
-* Ruby version
+ Конфигурация:
+* Версия Ruby 3.0.0
+* База данных - postgresql
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Скриншоты приложения
+![Image text](https://github.com/knyazann/Doc_management_system/blob/master/Screenshots/create_doc.png)
+![Image text](https://github.com/knyazann/Doc_management_system/blob/master/Screenshots/doc_page.png)
+![Image text](https://github.com/knyazann/Doc_management_system/blob/master/Screenshots/documents.png)
+![Image text](https://github.com/knyazann/Doc_management_system/blob/master/Screenshots/outbox_goals.png)
+![Image text](https://github.com/knyazann/Doc_management_system/blob/master/Screenshots/staff_table.png)
+![Image text](https://github.com/knyazann/Doc_management_system/blob/master/Screenshots/user_profile.png)
